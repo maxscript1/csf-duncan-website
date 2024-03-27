@@ -1,0 +1,682 @@
+/* Reset Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /* Montserrat font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Roboto font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+body {
+    font-family: 'Poppins', 'Kanit', sans-serif;
+    background-color: #fff; /* Default background color */
+    color: #333; /* Default text color */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.about-section,
+.scholarships-section,
+.calendar-section,
+.events-section,
+.teachers-section {
+    width: 100vw; /* Set width to viewport width */
+}
+
+.sub-tittle {
+    font-size: 0.49em;
+    color: #4f96fa;
+    font-weight: 700; 
+    letter-spacing: 2px;
+    display: block;
+    text-align: center; /* Center the smaller part */
+    margin-bottom: 5px; /* Add space underneath */
+
+}
+
+.tittle {
+    text-align: center; /* Center the entire title */
+    margin-bottom: 40px;
+    font-size: 34px;
+}
+
+
+/* Adjusted Header Styles */
+.header {
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/group\ csf.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Adjusted Container Styles */
+.container {
+    max-width: 100%; /* Adjusted to a percentage of viewport width */
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+/* Adjust Media Queries for Smaller Viewports */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+
+    .text-box {
+        width: 90%;
+    }
+
+        .container {
+        max-width: 90%;
+    }
+
+    /* Adjust width of scholarship boxes */
+    .scholarship {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    /* Adjust width of event boxes */
+    .event {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    /* Adjust width of teacher boxes */
+    .teacher {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
+
+/* Animation */
+.in-view {
+    visibility: visible !important;
+}
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+/* Navigation Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 80px;
+    background-color: #2e69ff; /* Change to your desired dark blue color */
+}
+
+
+.logo img {
+    max-width: 71px; /* Adjust the maximum width of the logo */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Smooth transition for the size change */
+}
+
+.logo img:hover {
+    transform: scale(1.1); /* Increase size by 10% on hover */
+}
+
+
+.nav-links ul {
+    list-style-type: none;
+}
+
+.nav-links ul li {
+    display: inline;
+    margin-right: 20px; /* Adjust spacing between navigation links */
+}
+
+/* Navigation Links Styles */
+.nav-links ul li a {
+    text-decoration: none;
+    color: #fff; /* Navigation link color */
+    font-size: 18px; /* Navigation link font size */
+    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth transitions for color and font size */
+    position: relative; /* Position relative for pseudo-element */
+}
+
+/* Highlight effect on hover */
+.nav-links ul li a:hover {
+    color: hsl(36, 100%, 62%); /* Change text color to blue on hover */
+    font-size: 20px; /* Increase font size on hover */
+}
+
+
+/* Underline Animation */
+.nav-links ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: #007bff; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for the underline */
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    border-radius: 5px; /* Rounded underline */
+    box-shadow: 0 0 5px #007bff; /* Glowing effect */
+}
+
+/* Show the underline and change color on hover */
+.nav-links ul li a:hover::after {
+    visibility: visible; /* Show the underline */
+    width: 100%; /* Full width */
+    background-color: #4091e7; /* Change color to blue */
+}
+
+
+/* Text Box Styles */
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.text-box h1 {
+    font-size: 36px; /* Heading font size */
+    margin-bottom: 20px; /* Spacing below the heading */
+    color: #fff; /* Heading color */
+}
+
+.text-box p {
+    font-size: 18px; /* Paragraph font size */
+    margin-bottom: 40px; /* Spacing below paragraphs */
+    color: #fff; /* Paragraph color */
+}
+
+.front-page-content {
+    position: relative;
+    height: calc(100vh - 80px); /* Adjust the height based on your header height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Add this to your CSS */
+
+@keyframes arrowAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.scroll-down-arrow {
+    position: absolute;
+    bottom:-320px;
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease; /* Add a smooth transition */
+    animation: arrowAnimation 2s infinite; /* Apply the animation */
+}
+
+.scroll-down-arrow:hover {
+    transform: translateY(5px); /* Add a small hover effect */
+    color:#67adf8
+}
+
+.scroll-down-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.scroll-down-arrow {
+    font-size: 48px;
+    color: #fff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    animation: arrowAnimation 2s infinite;
+    margin-bottom: 300px; /* Add margin bottom to create space between the arrow and the text */
+}
+
+.read-more-text {
+    color: #f9d2a2 !important;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+/* About Section Styles */
+.about-section {
+    padding: 80px 20px; /* Adjust section padding */
+    background-color: #f5f5f5; /* Section background color */
+    color: #333; /* Text color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-section .container {
+    display: flex;
+}
+
+.about-box {
+    flex: 1;
+    padding: 20px;
+    margin: 0 10px; /* Adjust spacing between boxes */
+    text-align: center;
+    background-color: #fff; /* Box background color */
+    border-radius: 5px; /* Box border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    transition: background-color 0.9s ease, color 0.3s ease;
+}
+
+
+/* Apply animation with adjusted duration and starting position */
+.in-view {
+    visibility: visible !important;
+    animation: fadeInUp 1.5s ease; /* Adjusted duration */
+}
+
+/* Our Goal About Box Styles */
+.our-goal-about-box {
+    text-align: center;
+}
+
+.our-goal-about-box img {
+    max-width: 100%; /* Ensure image doesn't overflow its container */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px; /* Add spacing below the image */
+    border-radius: 5px; /* Add a subtle border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+/* CSS for image enlargement on hover */
+.our-goal-about-box img {
+    transition: transform 0.3s ease; /* Smooth transition */
+}
+
+.our-goal-about-box img:hover {
+    transform: scale(1.1); /* Enlarge the image by 10% on hover */
+}
+
+.our-goal-about-box h2 {
+    font-size: 24px; /* Box heading font size */
+    margin-bottom: 10px; /* Spacing below box headings */
+    color: #333; /* Box heading color */
+}
+
+.our-goal-about-box p {
+    font-size: 16px; /* Box paragraph font size */
+    margin-bottom: 20px; /* Spacing below paragraphs */
+    color: #666; /* Box paragraph color */
+}
+
+.about-box h2 {
+    font-size: 24px; /* Box heading font size */
+    margin-bottom: 10px; /* Spacing below box headings */
+    color: #333; /* Box heading color */
+}
+
+.about-box p {
+    font-size: 16px; /* Box paragraph font size */
+    margin-bottom: 20px; /* Spacing below paragraphs */
+    color: #666; /* Box paragraph color */
+}
+
+.about-box:hover {
+    background-color: #1963eb; /* Blue background color */
+}
+
+.about-box:hover h2,
+.about-box:hover p {
+    color: #fff; /* White text color */
+}
+
+
+/* Scholarships Section Styles */
+.scholarships-section {
+    padding: 80px 20px; /* Adjust section padding */
+    background-color: #fff; /* Section background color */
+    color: #333; /* Text color */
+}
+
+.scholarship-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.scholarship {
+    flex: 0 0 calc(33.333% - 20px); /* Adjust width of scholarship boxes */
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f5f5f5; /* Box background color */
+    border-radius: 5px; /* Box border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+.scholarship h3 {
+    font-size: 20px; /* Heading font size */
+    margin-bottom: 10px; /* Spacing below heading */
+    color: #333; /* Heading color */
+}
+
+.scholarship a {
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.scholarship a:hover {
+    color: #0056b3; /* Link color on hover */
+}
+
+/* Calendar Section Styles */
+.calendar-section {
+    padding: 80px 20px; /* Adjust section padding */
+    background-color: #f5f5f5; /* Section background color */
+    color: #333; /* Text color */
+}
+
+.container iframe {
+    width: 100%;
+    height: 600px; /* Adjust calendar height */
+    border: none;
+}
+
+
+/* Events Section Styles */
+.events-section {
+    padding: 80px 20px; /* Adjust section padding */
+    background-color: #fff; /* Section background color */
+    color: #333; /* Text color */
+}
+
+.events-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items at the top */
+    flex-wrap: wrap;
+}
+
+.event {
+    flex: 0 0 calc(50% - 20px); /* Adjust width of event boxes */
+    margin: 10px;
+    padding: 20px;
+    background-color: #f5f5f5; /* Box background color */
+    border-radius: 5px; /* Box border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+}
+
+/* Additional CSS for Event Section */
+
+/* Event Title Styles */
+.event h2 {
+    font-size: 24px; /* Increase font size for event titles */
+    margin-bottom: 15px; /* Add more space below event titles */
+    color: #333; /* Event title color */
+}
+
+
+/* Event Photo Container Styles */
+.event-photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-around; /* Distribute photos evenly */
+    align-items: center; /* Align photos vertically */
+    margin-top: 20px; /* Add margin to separate photos from title */
+}
+
+/* Event Photo Styles */
+.event-photos img {
+    width: 200px; /* Set a fixed width for all photos */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners to photos */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+    transition: transform 0.3s ease; /* Add smooth hover effect */
+}
+
+/* Hover effect on event photos */
+.event-photos img:hover {
+    transform: scale(1.1); /* Enlarge photo on hover */
+}
+
+
+
+/* Teachers and Mentors Section Styles */
+.teachers-section {
+    padding: 80px 20px; /* Adjust section padding */
+    background-color: #f5f5f5; /* Section background color */
+    color: #333; /* Text color */
+}
+
+.teachers-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align items at the bottom */
+    flex-wrap: wrap;
+}
+
+.teacher {
+    flex: 0 0 calc(25% - 20px); /* Adjust width of teacher boxes */
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* Box background color */
+    border-radius: 50%; /* Circle border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
+    overflow: hidden; /* Hide overflowing content */
+    position: relative; /* Position relative for pseudo-element */
+}
+
+.teacher img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%; /* Make the image circular */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.teacher:hover img {
+    transform: scale(1.1); /* Zoom effect on hover */
+}
+
+.teacher::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s ease; /* Smooth opacity transition */
+}
+
+.teacher:hover::before {
+    opacity: 1; /* Fade in overlay on hover */
+}
+
+.teacher-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* Text color */
+    z-index: 1; /* Ensure content stays above overlay */
+}
+
+.teacher-content h3 {
+    font-size: 20px; /* Heading font size */
+    margin-bottom: 10px; /* Spacing below heading */
+}
+
+.teacher-content p {
+    font-size: 16px; /* Paragraph font size */
+}
+
+.teacher-details {
+    text-align: center;
+}
+
+.teacher-content h3 {
+    margin-bottom: 10px; /* Spacing below heading */
+}
+
+.teacher-content p {
+    margin: 0; /* Remove default margin */
+}
+
+/* Footer Section Styles */
+footer {
+    padding: 50px 20px; /* Adjust footer padding */
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Text color */
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 20px; /* Spacing below logo */
+}
+
+.footer-logo img {
+    max-width: 120px; /* Adjust logo size */
+    height: auto; /* Ensure aspect ratio is maintained */
+    border-radius: 50%; /* Make the logo circular */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Zoom effect on hover */
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    opacity: 0.7; /* Set initial opacity */
+}
+
+.social-icons a:hover img {
+    opacity: 1; /* Increase opacity on hover */
+}
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 20px; /* Reduce the top and bottom padding */
+    text-align: center;
+}
+
+.socials-section {
+    margin-bottom: 10px; /* Reduce the bottom margin for the socials section */
+}
+
+.socials-title {
+    font-size: 18px;
+    margin-bottom: 5px; /* Reduce the bottom margin for the socials title */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 75px; /* Reduce the max-width of the logo */
+    height: auto;
+}
+
+.footer-info p {
+    margin: 0;
+    margin-top: 5px; /* Reduce the top margin for the footer info */
+    font-size: 14px;
+}
+
+
+/* Scroll to Top Button Styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px; /* Button font size */
+    color: #333; /* Button color */
+    background-color: #fca522; /* Button background color */
+    width: 40px; /* Button width */
+    height: 40px; /* Button height */
+    text-align: center;
+    line-height: 40px; /* Center button text vertically */
+    border-radius: 50%; /* Make button circular */
+    cursor: pointer;
+    z-index: 9999; /* Ensure button appears on top of other content */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.scroll-to-top:hover {
+    background-color: #e0941d; /* Button background color on hover */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #222; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide navigation links on small screens */
+    }
+
+    .text-box {
+        width: 90%; /* Adjust text box width */
+    }
+
+    /* Adjust width of scholarship boxes on small screens */
+    .scholarship {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    /* Adjust width of event boxes on small screens */
+    .event {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    /* Adjust width of teacher boxes on small screens */
+    .teacher {
+        flex: 0 0 calc(50% - 20px);
+    }
+}
