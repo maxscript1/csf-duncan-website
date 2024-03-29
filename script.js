@@ -91,4 +91,3 @@ function handleScrollForSection(sectionId) {
 function scrollToTop() {
     smoothScroll('body', 1000);
 }
-
