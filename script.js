@@ -1,4 +1,3 @@
-// Smooth scrolling function
 function smoothScroll(target, duration) {
     var targetElement = document.querySelector(target);
     var targetPosition = targetElement.getBoundingClientRect().top;
@@ -14,16 +13,16 @@ function smoothScroll(target, duration) {
         if (timeElapsed < duration) requestAnimationFrame(animation);
     }
 
-    // Easing function
+    // Modified easing function
     function ease(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return c / 2 * t * t + b;
+        t /= d;
         t--;
-        return -c / 2 * (t * (t - 2) - 1) + b;
+        return c * (t * t * t + 1) + b;
     }
 
     requestAnimationFrame(animation);
 }
+
 
 // Show/hide scroll to top button based on scroll position
 function toggleScrollToTopButton() {
@@ -87,7 +86,31 @@ function handleScrollForSection(sectionId) {
     }
 }
 
+// Smooth scrolling function for scroll-to-top button
+function smoothScrollToTop(duration) {
+    var startPosition = window.pageYOffset;
+    var distance = -startPosition;
+    var startTime = null;
+
+    function animation(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        var timeElapsed = currentTime - startTime;
+        var run = easeInFunction(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, run);
+        if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    // Easing function for easing in
+    function easeInFunction(t, b, c, d) {
+        t /= d;
+        t--;
+        return c * (t * t * t + 1) + b;
+    }
+
+    requestAnimationFrame(animation);
+}
+
 // Scroll to top function
 function scrollToTop() {
-    smoothScroll('body', 1000);
+    smoothScrollToTop(1000);
 }
