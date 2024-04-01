@@ -452,6 +452,7 @@ nav {
     border-radius: 10px; /* Add rounded corners to photos */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
     transition: transform 0.3s ease; /* Add smooth hover effect */
+    cursor: pointer;
 }
 
 /* Hover effect on event photos */
@@ -459,7 +460,48 @@ nav {
     transform: scale(1.1); /* Enlarge photo on hover */
 }
 
+/* Lightbox Styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: opacity 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
 
+.lightbox-content {
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    transition: transform 0.25s ease;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.close:hover,
+.close:focus {
+    color: #26a0eb;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: 1;
+}
 
 /* Teachers and Mentors Section Styles */
 .teachers-section {

@@ -114,3 +114,42 @@ function smoothScrollToTop(duration) {
 function scrollToTop() {
     smoothScrollToTop(1000);
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    var lightbox = document.getElementById('lightbox');
+    var lightboxContent = document.querySelector('.lightbox-content');
+    var closeBtn = document.querySelector('.close');
+
+    // Event listener for clicking on event photos
+    document.querySelectorAll('.event-photos img').forEach(function(img) {
+        img.addEventListener('click', function() {
+            var imgSrc = this.getAttribute('src');
+            lightboxContent.setAttribute('src', imgSrc);
+            lightbox.style.display = 'flex';
+            setTimeout(function() {
+                lightboxContent.style.transform = 'scale(1)';
+            }, 50);
+        });
+    });
+
+    // Event listener for closing the lightbox
+    closeBtn.addEventListener('click', function() {
+        lightboxContent.style.transform = 'scale(0)';
+        setTimeout(function() {
+            lightbox.style.display = 'none';
+        }, 300);
+    });
+
+    // Close lightbox when clicking outside the modal
+    window.addEventListener('click', function(event) {
+        if (event.target === lightbox) {
+            lightboxContent.style.transform = 'scale(0)';
+            setTimeout(function() {
+                lightbox.style.display = 'none';
+            }, 300);
+        }
+    });
+});
+
+
+
