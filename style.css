@@ -280,7 +280,7 @@ nav {
     background-color: #fff; /* Box background color */
     border-radius: 5px; /* Box border radius */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
-    transition: background-color 0.9s ease, color 0.3s ease;
+    color: #333; /* Box default text color */
 }
 
 
@@ -335,8 +335,11 @@ nav {
     color: #666; /* Box paragraph color */
 }
 
+/* Hover Styles */
 .about-box:hover {
     background-color: #1963eb; /* Blue background color */
+    color: #fff; /* White text color */
+    transition: background-color 0.3s ease-in, color 0.3s ease-out; /* Smooth transition */
 }
 
 .about-box:hover h2,
