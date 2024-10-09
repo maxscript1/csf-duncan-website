@@ -115,6 +115,8 @@ function scrollToTop() {
     smoothScrollToTop(1000);
 }
 
+//  Image Enlarge Box Click
+
 document.addEventListener('DOMContentLoaded', function() {
     var lightbox = document.getElementById('lightbox');
     var lightboxContent = document.querySelector('.lightbox-content');
@@ -150,6 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
 
 
 

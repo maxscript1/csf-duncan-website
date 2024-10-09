@@ -701,6 +701,7 @@ footer {
     color: #fff; /* Dark mode text color */
 }
 
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .nav-links {
