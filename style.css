@@ -11,7 +11,7 @@
 /* Base Styles */
 body {
     font-family: 'Poppins', 'Kanit', sans-serif;
-    background-color: #fff; /* Default background color */
+    background-color: #ffffff; /* Default background color */
     color: #333; /* Default text color */
     scroll-behavior: smooth; /* Smooth scrolling behavior */
     margin: 0;
@@ -45,16 +45,29 @@ body {
 }
 
 
-/* Adjusted Header Styles */
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/group\ csf.jpeg);
+    background-image: url(images/group\ csf.jpeg); /* Only the image */
     background-position: center;
     background-size: cover;
     position: relative;
     overflow: hidden;
 }
+
+.header::after {
+    content: ""; /* Create a pseudo-element for overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1); /* Black overlay */
+    transition: opacity 0.3s ease; /* Smooth transition for opacity */
+    opacity: 0; /* Start as fully transparent */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
 
 /* Adjusted Container Styles */
 .container {
@@ -340,6 +353,11 @@ nav {
     background-color: #1963eb; /* Blue background color */
     color: #fff; /* White text color */
     transition: background-color 0.3s ease-in, color 0.3s ease-out; /* Smooth transition */
+
+}
+
+.about-box::after {
+    transition: background-color 0.3s ease; /* Same easing for ::after */
 }
 
 .about-box:hover h2,
@@ -400,6 +418,7 @@ nav {
     height: 600px; /* Adjust calendar height */
     border: none;
 }
+
 
 
 /* Events Section Styles */
@@ -505,87 +524,109 @@ nav {
 
 /* Teachers and Mentors Section Styles */
 .teachers-section {
-    padding: 80px 20px; /* Adjust section padding */
-    background-color: #f5f5f5; /* Section background color */
-    color: #333333; /* Text color */
+    padding: 80px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
 }
 
 .teachers-container {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Align items at the bottom */
     flex-wrap: wrap;
+    gap: 30px; /* Space between each teacher card */
 }
 
+/* Teacher card */
 .teacher {
-    flex: 0 0 calc(25% - 20px); /* Adjust width of teacher boxes */
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    background-color: #fff; /* Box background color */
-    border-radius: 50%; /* Circle border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
-    overflow: hidden; /* Hide overflowing content */
-    position: relative; /* Position relative for pseudo-element */
+    width: 280px;
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    cursor: pointer;
 }
 
+/* Lift card and add shadow on hover */
+.teacher:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* Teacher profile image */
+.teacher-profile {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
 
 .teacher img {
     width: 100%;
-    height: auto;
-    border-radius: 50%; /* Make the image circular */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
-}
-
-.teacher:hover img {
-    transform: scale(1.1); /* Zoom effect on hover */
-}
-
-.teacher::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-    background-color: rgba(44, 32, 32, 0.5); /* Semi-transparent overlay */
-    opacity: 0; /* Initially invisible */
-    transition: opacity 0.3s ease; /* Smooth opacity transition */
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(100%); /* Darken image with grayscale initially */
 }
 
-.teacher:hover::before {
-    opacity: 1; /* Fade in overlay on hover */
+/* Hover effects for the image */
+.teacher:hover img {
+    transform: scale(1.1); /* Zoom image on hover */
+    filter: grayscale(0%); /* Remove grayscale to show color on hover */
 }
 
-.teacher-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; /* Text color */
-    z-index: 1; /* Ensure content stays above overlay */
-}
-
-.teacher-content h3 {
-    font-size: 20px; /* Heading font size */
-    margin-bottom: 10px; /* Spacing below heading */
-}
-
-.teacher-content p {
-    font-size: 16px; /* Paragraph font size */
-}
-
+/* Teacher details (name and position) */
 .teacher-details {
+    padding: 20px;
     text-align: center;
+    background-color: #fff; /* Default background color */
+    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth color transition */
 }
 
-.teacher-content h3 {
-    margin-bottom: 10px; /* Spacing below heading */
+/* Change background to blue and text to white on hover */
+.teacher:hover .teacher-details {
+    background-color: #007bff; /* Bright blue background on hover */
+    color: #fff; /* Change text color to white on hover */
 }
 
-.teacher-content p {
-    margin: 0; /* Remove default margin */
+/* Ensure the text color changes to white */
+.teacher-details h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333; /* Default text color */
+    transition: color 0.4s ease;
 }
+
+.teacher:hover .teacher-details h3 {
+    color: #fff; /* White text on hover */
+}
+
+
+.teacher-details p {
+    font-size: 16px;
+    color: #777; /* Default text color */
+    transition: color 0.4s ease;
+}
+
+.teacher:hover .teacher-details p {
+    color: #ffa600; /* White text on hover */
+}
+
+/* Responsive design: stack the cards on smaller screens */
+@media (max-width: 768px) {
+    .teachers-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .teacher {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+
 
 /* Footer Section Styles */
 footer {
@@ -606,6 +647,11 @@ footer {
     transition: transform 0.3s ease; /* Smooth transition on hover */
 }
 
+.footer-logo img:hover{
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
 .social-icons a {
     display: inline-block;
     margin-right: 10px;
@@ -613,7 +659,7 @@ footer {
 }
 
 .social-icons a:hover {
-    transform: scale(1.2); /* Zoom effect on hover */
+    transform: scale(1.05); /* Zoom effect on hover */
 }
 
 .social-icons img {

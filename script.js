@@ -1,6 +1,6 @@
 function smoothScroll(target, duration) {
     var targetElement = document.querySelector(target);
-    var targetPosition = targetElement.getBoundingClientRect().top;
+    var targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset; // Adjusted to include current scroll position
     var startPosition = window.pageYOffset;
     var distance = targetPosition - startPosition;
     var startTime = null;
@@ -13,7 +13,7 @@ function smoothScroll(target, duration) {
         if (timeElapsed < duration) requestAnimationFrame(animation);
     }
 
-    // Modified easing function
+    // Unified easing function
     function ease(t, b, c, d) {
         t /= d;
         t--;
@@ -23,6 +23,30 @@ function smoothScroll(target, duration) {
     requestAnimationFrame(animation);
 }
 
+// Function to adjust header opacity based on scroll position
+function handleHeaderOpacity() {
+    const header = document.querySelector('.header');
+    const scrollY = window.scrollY; 
+    const headerHeight = header.offsetHeight; 
+
+    // Calculate opacity to create a fade to black effect
+    let opacity = Math.max(0, 1 - (scrollY / headerHeight));
+
+    // Set the opacity of the header background (image)
+    header.style.opacity = opacity; 
+
+    // Correct way to access the overlay if it exists
+    const overlay = header.querySelector('.overlay'); // Assuming an actual overlay element
+    if (overlay) {
+        overlay.style.opacity = 1 - opacity; // Adjust the overlay opacity
+    }
+}
+
+// Adjust opacity on scroll
+window.addEventListener("scroll", function() {
+    handleHeaderOpacity();
+    toggleScrollToTopButton(); // Added here to keep it in one scroll event listener
+});
 
 // Show/hide scroll to top button based on scroll position
 function toggleScrollToTopButton() {
@@ -53,12 +77,6 @@ function handleScroll() {
     handleScrollForSection("teachers");
 }
 
-// Listen for scroll events
-window.addEventListener("scroll", function() {
-    toggleScrollToTopButton();
-    handleScroll();
-});
-
 // Initial check when the page loads
 handleScroll();
 
@@ -81,7 +99,6 @@ function handleScrollForSection(sectionId) {
     if (isPartiallyInView) {
         section.classList.add("in-view");
     } else {
-        // If the section is not partially in view, remove animation class
         section.classList.remove("in-view");
     }
 }
@@ -95,13 +112,13 @@ function smoothScrollToTop(duration) {
     function animation(currentTime) {
         if (startTime === null) startTime = currentTime;
         var timeElapsed = currentTime - startTime;
-        var run = easeInFunction(timeElapsed, startPosition, distance, duration);
+        var run = ease(timeElapsed, startPosition, distance, duration);
         window.scrollTo(0, run);
         if (timeElapsed < duration) requestAnimationFrame(animation);
     }
 
-    // Easing function for easing in
-    function easeInFunction(t, b, c, d) {
+    // Unified easing function
+    function ease(t, b, c, d) {
         t /= d;
         t--;
         return c * (t * t * t + 1) + b;
@@ -115,8 +132,7 @@ function scrollToTop() {
     smoothScrollToTop(1000);
 }
 
-//  Image Enlarge Box Click
-
+// Lightbox functionality
 document.addEventListener('DOMContentLoaded', function() {
     var lightbox = document.getElementById('lightbox');
     var lightboxContent = document.querySelector('.lightbox-content');
@@ -133,6 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 50);
         });
     });
+    
 
     // Event listener for closing the lightbox
     closeBtn.addEventListener('click', function() {
@@ -152,8 +169,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
-
-
-
