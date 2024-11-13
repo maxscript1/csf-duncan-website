@@ -77,36 +77,6 @@ body {
 
 }
 
-/* Adjust Media Queries for Smaller Viewports */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-
-    .text-box {
-        width: 90%;
-    }
-
-        .container {
-        max-width: 90%;
-    }
-
-    /* Adjust width of scholarship boxes */
-    .scholarship {
-        flex: 0 0 calc(50% - 20px);
-    }
-
-    /* Adjust width of event boxes */
-    .event {
-        flex: 0 0 calc(50% - 20px);
-    }
-
-    /* Adjust width of teacher boxes */
-    .teacher {
-        flex: 0 0 calc(50% - 20px);
-    }
-}
 
 /* Animation */
 .in-view {
@@ -466,7 +436,7 @@ nav {
 
 /* Event Photo Styles */
 .event-photos img {
-    width: 200px; /* Set a fixed width for all photos */
+    width: 240px; /* Set a fixed width for all photos */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Add rounded corners to photos */
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
@@ -774,4 +744,105 @@ footer {
     .teacher {
         flex: 0 0 calc(50% - 20px);
     }
+
+/* General styles to ensure responsiveness */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Reduce font size on smaller screens */
+        padding: 0; /* Ensure no padding around body */
+        margin: 0; /* Ensure no margin around body */
+    }
+
+    .header {
+        padding: 10px; /* Adjust padding for smaller screens */
+        height: auto; /* Make sure the height adjusts for content */
+        margin: 0; /* Ensure no margin for the header */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        margin: 0; /* Remove margin */
+    }
+
+    .nav-links a {
+        padding: 8px 0; /* Adjust spacing for mobile */
+        font-size: 16px; /* Set a mobile-friendly font size */
+        margin: 0; /* Ensure no margin */
+    }
+
+    .about-section, .scholarships-section, .calendar-section, .events-section, .teachers-section {
+        padding: 10px 5px; /* Reduce padding for sections */
+        max-width: 100%; /* Ensure sections do not exceed viewport width */
+        margin: 0 auto; /* Center the section */
+    }
+
+    .event-photos img {
+        width: 100%; /* Make images responsive */
+        height: auto;
+        display: block; /* Remove bottom space caused by inline images */
+    }
+
+    /* Ensure circular images for mentors and teachers section are responsive */
+    .teacher-card img, .mentor-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%; /* Ensure the images are circular */
+        object-fit: cover; /* Ensure the image fits well within the circle */
+    }
+
+    /* Adjust lightbox to be smaller on mobile */
+    .lightbox-content {
+        width: 80%; 
+        height: auto;
+        margin: 0 auto; /* Center the lightbox */
+    }
+}
+
+
+/* Extra small devices like iPhone SE */
+@media (max-width: 576px) {
+    .header {
+        font-size: 12px; /* Further reduce font size */
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .about-section, .scholarships-section, .calendar-section, .events-section, .teachers-section {
+        padding: 5px;
+    }
+
+    .lightbox-content {
+        width: 90%;
+        height: auto;
+    }
+}
+
+/* Adjust flexbox layout on mobile */
+@media (max-width: 768px) {
+    .flex-container {
+        flex-direction: column; /* Stack elements vertically on mobile */
+    }
+
+    .teacher-card, .mentor-card, .officer-card {
+        margin-bottom: 20px;
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+
 }
