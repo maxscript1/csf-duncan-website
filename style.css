@@ -721,9 +721,7 @@ footer {
 
 
 /* General styles to ensure responsiveness */
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
@@ -731,25 +729,7 @@ body {
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     overflow-x: hidden; /* Prevent horizontal scrolling */
-    width: 100vw; /* Ensure the body doesn’t extend beyond the viewport */
-}
-
-.container, .header, .about-section, .scholarships-section, .calendar-section, .events-section, .teachers-section {
-    max-width: 100%; /* Limit section widths to viewport */
-    overflow: hidden; /* Prevent overflow within sections */
-}
-
-img {
-    max-width: 100%; /* Ensure images do not exceed container width */
-    height: auto;
-}
-
-/* Down arrow styling */
-.down-arrow {
-    width: 24px; /* Adjust width for balanced size */
-    height: 24px; /* Ensure proportional height */
-    display: block;
-    margin: 0 auto; /* Center align */
+    width: 100%; /* Ensure the body doesn’t extend beyond the viewport */
 }
 
 /* Media Queries */
@@ -856,6 +836,14 @@ img {
         max-width: 300px;
         height: auto;
     }
+
+    /* Down arrow styling */
+    .down-arrow {
+        width: 24px; /* Adjust width for balanced size */
+        height: 24px; /* Ensure proportional height */
+        display: block;
+        margin: 0 auto; /* Center align */
+    }
 }
 
 /* Extra small devices like iPhone SE */
@@ -890,7 +878,6 @@ img {
         width: 100%; /* Full width on smaller screens */
     }
 }
-
 
 
 
