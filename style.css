@@ -839,7 +839,7 @@ body {
 
     /* Down arrow styling */
     .down-arrow {
-        width: 24px; /* Adjust width for balanced size */
+        width: 240px; /* Adjust width for balanced size */
         height: 24px; /* Ensure proportional height */
         display: block;
         margin: 0 auto; /* Center align */
