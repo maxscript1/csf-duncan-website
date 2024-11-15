@@ -720,6 +720,17 @@ footer {
 }
 
 
+/* General styles to ensure responsiveness */
+* {
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 /* Media Queries */
 @media screen and (max-width: 768px) {
     .nav-links {
@@ -745,71 +756,87 @@ footer {
         flex: 0 0 calc(50% - 20px);
     }
 
-/* General styles to ensure responsiveness */
-* {
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-}
-
-body {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
+    /* Mobile adjustments */
     body {
         font-size: 14px; /* Reduce font size on smaller screens */
-        padding: 0; /* Ensure no padding around body */
-        margin: 0; /* Ensure no margin around body */
+        padding: 0;
+        margin: 0;
     }
 
     .header {
         padding: 10px; /* Adjust padding for smaller screens */
-        height: auto; /* Make sure the height adjusts for content */
-        margin: 0; /* Ensure no margin for the header */
+        height: auto;
+        margin: 0;
     }
 
     .nav-links {
         flex-direction: column; /* Stack nav links vertically */
         align-items: center;
-        margin: 0; /* Remove margin */
+        margin: 0;
     }
 
     .nav-links a {
-        padding: 8px 0; /* Adjust spacing for mobile */
-        font-size: 16px; /* Set a mobile-friendly font size */
-        margin: 0; /* Ensure no margin */
+        padding: 8px 0;
+        font-size: 16px;
+        margin: 0;
     }
 
     .about-section, .scholarships-section, .calendar-section, .events-section, .teachers-section {
-        padding: 10px 5px; /* Reduce padding for sections */
-        max-width: 100%; /* Ensure sections do not exceed viewport width */
-        margin: 0 auto; /* Center the section */
+        padding: 10px 5px;
+        max-width: 100%;
+        margin: 0 auto;
     }
 
     .event-photos img {
-        width: 100%; /* Make images responsive */
+        width: 100%;
         height: auto;
-        display: block; /* Remove bottom space caused by inline images */
+        display: block;
     }
 
     /* Ensure circular images for mentors and teachers section are responsive */
     .teacher-card img, .mentor-card img {
         width: 80px;
         height: 80px;
-        border-radius: 50%; /* Ensure the images are circular */
-        object-fit: cover; /* Ensure the image fits well within the circle */
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     /* Adjust lightbox to be smaller on mobile */
     .lightbox-content {
         width: 80%; 
         height: auto;
-        margin: 0 auto; /* Center the lightbox */
+        margin: 0 auto;
+    }
+
+    /* Navbar positioned at the top */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0; /* Ensure it starts at the left edge */
+        width: 100%;
+        z-index: 1000;
+        padding: 0;
+        margin: 0; /* Remove any default margin */
+    }
+
+
+    /* Offset body content to avoid overlap with navbar */
+    body {
+        padding-top: 50px; /* Adjust if the navbar overlaps content */
+    }
+
+    /* Scale down events and officers section */
+    .events-section, .officers-section {
+        font-size: 0.9em;
+        padding: 20px;
+    }
+
+    .events-section img, .officers-section img {
+        width: 80%; /* Scale down images */
+        max-width: 300px;
+        height: auto;
     }
 }
-
 
 /* Extra small devices like iPhone SE */
 @media (max-width: 576px) {
@@ -845,4 +872,5 @@ body {
 }
 
 
-}
+
+
