@@ -729,6 +729,7 @@ body {
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%; /* Ensure the body doesn’t extend beyond the viewport */
 }
 
 /* Media Queries */
@@ -819,7 +820,6 @@ body {
         margin: 0; /* Remove any default margin */
     }
 
-
     /* Offset body content to avoid overlap with navbar */
     body {
         padding-top: 50px; /* Adjust if the navbar overlaps content */
@@ -835,6 +835,14 @@ body {
         width: 80%; /* Scale down images */
         max-width: 300px;
         height: auto;
+    }
+
+    /* Down arrow styling */
+    .down-arrow {
+        width: 24px; /* Adjust width for balanced size */
+        height: 24px; /* Ensure proportional height */
+        display: block;
+        margin: 0 auto; /* Center align */
     }
 }
 
@@ -870,6 +878,7 @@ body {
         width: 100%; /* Full width on smaller screens */
     }
 }
+
 
 
 
