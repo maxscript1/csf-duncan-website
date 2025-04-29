@@ -23,6 +23,11 @@
     <link rel="icon" type="image/png" href="images/csf logo.png" />
     <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <!-- Header Section -->
@@ -42,7 +47,7 @@
         </div>
       </nav>
       <div class="text-box">
-        <h1>California Scholarship Foundation</h1>
+        <h1>CALIFORNIA SCHOLARSHIP FOUNDATION</h1>
         <p>CSF Duncan Polytechnical Academic Club.</p>
         <a href="#about" class="scroll-down-arrow">⇩</a>
         <p class="read-more-text">Read More</p>
@@ -51,7 +56,10 @@
 
     <!-- About Section -->
     <div id="about" class="about-section">
-      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3">
+      <h3
+        class="tittle text-uppercase text-center mb-lg-5 mb-3"
+        data-aos="fade-right"
+      >
         <span class="sub-tittle">CSF CLUB</span>ABOUT US
       </h3>
       <div class="container">
@@ -85,26 +93,24 @@
     </div>
 
     <!-- Scholarships Section -->
-    <div
-      id="scholarships"
-      class="scholarships-section"
-      data-aos="fade-left"
-      data-aos-duration="1000"
-    >
-      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3">
+    <div id="scholarships" class="scholarships-section">
+      <h3
+        class="tittle text-uppercase text-center mb-lg-5 mb-3"
+        data-aos="fade-left"
+      >
         <span class="sub-tittle">OUR</span>SCHOLARSHIPS
       </h3>
       <div class="container">
         <div class="scholarship-links">
-          <div class="scholarship">
+          <div class="scholarship" data-aos="fade-up" data-aos-duration="1050">
             <h3>SEYMOUR AWARD</h3>
             <a href="https://csf-cjsf.org/csf-awards/#Seymour">Apply Now</a>
           </div>
-          <div class="scholarship">
+          <div class="scholarship" data-aos="fade-up" data-aos-duration="2000">
             <h3>MICHELSON MEMORIAL AWARD</h3>
             <a href="https://csf-cjsf.org/csf-awards/#Michelson">Apply Now</a>
           </div>
-          <div class="scholarship">
+          <div class="scholarship" data-aos="fade-up" data-aos-duration="1050">
             <h3>MORE...</h3>
             <a href="https://csf-cjsf.org/csf-awards/">Apply Now</a>
           </div>
@@ -114,27 +120,101 @@
 
     <!-- Calendar Section -->
     <div id="calendar" class="calendar-section">
-      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3">
+      <h3
+        class="tittle text-uppercase text-center mb-lg-5 mb-3"
+        data-aos="fade-down"
+      >
         <span class="sub-tittle">OUR</span>MEETINGS
       </h3>
       <div class="container" data-aos="zoom-in">
         <iframe
-          src="
-        https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&src=Y184OTI3MTkwMzk2NGJlN2ExZjFhYTkwMWM1MGY2ZTgzMTFmOTk1N2NjMDBiOTZjYzJkMzJkMTY3ZWU5OGEzYmM5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&showPrint=0
-"
+          src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FLos_Angeles&src=Y184OTI3MTkwMzk2NGJlN2ExZjFhYTkwMWM1MGY2ZTgzMTFmOTk1N2NjMDBiOTZjYzJkMzJkMTY3ZWU5OGEzYmM5QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&showPrint=0"
           frameborder="0"
           scrolling="no"
         ></iframe>
       </div>
     </div>
 
+    <!-- Scholarship Winner Section -->
+
+    <section class="winners-section" id="winners"">
+      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3" data-aos="fade-right">
+        <span class="sub-tittle">OUR</span> SCHOLARSHIP WINNERS
+      </h3>
+
+      <!-- Swiper container -->
+      <div class="swiper" data-aos="fade-up">
+        <div class="swiper-wrapper">
+          <!-- Winner Slide 1 -->
+          <div class="swiper-slide winner-card">
+            <img
+              src="images/seymor pic 2.jpg"
+              alt="Jane Doe"
+              class="winner-img"
+            />
+          </div>
+          <!-- Winner Slide 2 -->
+          <div class="swiper-slide winner-card">
+            <img
+              src="images/seymor pic 3.jpg"
+              alt="Jane Doe"
+              class="winner-img"
+            />
+          </div>
+          <!-- Winner Slide 3 -->
+          <div class="swiper-slide winner-card">
+            <img
+              src="images/seymor pic 1.png"
+              alt="Jane Doe"
+              class="winner-img"
+            />
+          </div>
+          <!-- Winner Slide 4 -->
+          <div class="swiper-slide winner-card">
+            <img
+              src="images/seymor pic 4.jpg"
+              alt="Jane Doe"
+              class="winner-img"
+            />
+          </div>
+        </div>
+
+        <!-- Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+
+      <div class="winner__text-box" data-aos="fade-down-right">
+        <h2>Max Pacheco</h2>
+        <p>Seymor Award Finalist</p>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      const swiper = new Swiper(".swiper", {
+        loop: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        grabCursor: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
     <!-- Events Section -->
     <div id="events" class="events-section">
-      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3">
+      <h3
+        class="tittle text-uppercase text-center mb-lg-5 mb-3"
+        data-aos="fade-down"
+      >
         <span class="sub-tittle">OUR</span>EVENTS
       </h3>
       <div class="container">
-        <div class="event" data-aos="flip-down">
+        <div class="event" data-aos="fade-left">
           <h2>Familias En Accion</h2>
           <div class="event-photos">
             <img
@@ -174,7 +254,7 @@
             <img src="images/Duncan Closet (4).jpg" alt="Event 2 Photo 4" />
           </div>
         </div>
-        <div class="event" data-aos="flip-up">
+        <div class="event" data-aos="fade-right">
           <h2>CSF Meeting Photos</h2>
           <div class="event-photos">
             <img src="images/Meeting Photos (1).jpg" alt="Event 3 Photo 1" />
@@ -194,7 +274,10 @@
 
     <!-- Teachers and Mentors Section -->
     <div id="teachers" class="teachers-section">
-      <h3 class="tittle text-uppercase text-center mb-lg-5 mb-3">
+      <h3
+        class="tittle text-uppercase text-center mb-lg-5 mb-3"
+        data-aos="fade-left"
+      >
         <span class="sub-tittle">OUR</span>OFFICERS
       </h3>
       <div class="container">
@@ -239,7 +322,7 @@
           <div class="teacher" data-aos="fade-up-left">
             <div class="teacher-profile">
               <img
-                src="images/Web Developer (2).jpg"
+                src="images/Max Pacheco pfp.jpg"
                 alt="Max Pacheco - Web Developer"
               />
             </div>

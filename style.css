@@ -2,6 +2,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /* Montserrat font */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Roboto font */
+
+/* imports css */
+@import url('sections/about-section.css');
+@import url('sections/calendar.css');
+@import url('sections/event-section.css');
+@import url('sections/footer-section.css');
+@import url('sections/nav.css');
+@import url('sections/officers-section.css');
+@import url('sections/scholarship-section.css');
+@import url('sections/winners-section.css');
+
 * {
     margin: 0;
     padding: 0;
@@ -111,51 +122,55 @@ nav {
 
 .nav-links ul {
     list-style-type: none;
-}
-
-.nav-links ul li {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav-links ul li {
     display: inline;
-    margin-right: 20px; /* Adjust spacing between navigation links */
-}
-
-/* Navigation Links Styles */
-.nav-links ul li a {
+    margin-right: 20px;
+    position: relative; /* Needed for ::before to position correctly */
+  }
+  
+  /* Navigation Links */
+  .nav-links ul li a {
+    font-size: 18px;
     text-decoration: none;
-    color: #fff; /* Navigation link color */
-    font-size: 18px; /* Navigation link font size */
-    transition: color 0.3s ease, font-size 0.3s ease; /* Smooth transitions for color and font size */
-    position: relative; /* Position relative for pseudo-element */
-}
-
-/* Highlight effect on hover */
-.nav-links ul li a:hover {
-    color: hsl(36, 100%, 62%); /* Change text color to blue on hover */
-    font-size: 20px; /* Increase font size on hover */
-}
-
-
-/* Underline Animation */
-.nav-links ul li a::after {
+    color: #000; /* Fallback color */
+    background-image: linear-gradient(to right, hsl(0, 0%, 100%), #ffffff 50%, #000 50%);
+    background-size: 200% 100%;
+    text-transform: uppercase;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.2s ease-in-out;
+    position: relative; /* Needed for underline */
+  }
+  
+  /* Underline effect */
+  .nav-links ul li a::before {
     content: '';
+    background: #ff5e00;
     display: block;
-    width: 0;
-    height: 2px;
-    background-color: #007bff; /* Color of the underline */
-    transition: width 0.3s ease; /* Smooth transition for the underline */
     position: absolute;
-    bottom: -2px;
+    bottom: -3px;
     left: 0;
-    border-radius: 5px; /* Rounded underline */
-    box-shadow: 0 0 5px #007bff; /* Glowing effect */
-}
-
-/* Show the underline and change color on hover */
-.nav-links ul li a:hover::after {
-    visibility: visible; /* Show the underline */
-    width: 100%; /* Full width */
-    background-color: #4091e7; /* Change color to blue */
-}
-
+    width: 0;
+    height: 3px;
+    transition: width 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  /* On hover: slide text color and underline */
+  .nav-links ul li a:hover {
+    background-position: 0;
+    font-size: 20px;
+  }
+  
+  .nav-links ul li a:hover::before {
+    width: 100%;
+  }
+  
 
 /* Text Box Styles */
 .text-box {
@@ -169,7 +184,9 @@ nav {
 .text-box h1 {
     font-size: 36px; /* Heading font size */
     margin-bottom: 20px; /* Spacing below the heading */
-    color: #fff; /* Heading color */
+    color: #ffffff; /* Heading color */
+    text-shadow: 1px 1px 2px black;
+
 }
 
 .text-box p {
@@ -213,7 +230,7 @@ nav {
 
 .scroll-down-arrow:hover {
     transform: translateY(5px); /* Add a small hover effect */
-    color:#67adf8
+    color:#007bff
 }
 
 .scroll-down-container {
@@ -233,492 +250,11 @@ nav {
 }
 
 .read-more-text {
-    color: #ff8c00 !important;
+    color: #5c98ff !important;
     font-size: 16px;
     margin-left: 20px;
+    text-shadow: rgb(20, 126, 255) 1px 0 10px;
 }
-
-/* About Section Styles */
-.about-section {
-    padding: 80px 20px; /* Adjust section padding */
-    background-color: #f5f5f5; /* Section background color */
-    color: #333; /* Text color */
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.about-section .container {
-    display: flex;
-}
-
-.about-box {
-    flex: 1;
-    padding: 20px;
-    margin: 0 10px; /* Adjust spacing between boxes */
-    text-align: center;
-    background-color: #fff; /* Box background color */
-    border-radius: 5px; /* Box border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
-    color: #333; /* Box default text color */
-}
-
-
-/* Apply animation with adjusted duration and starting position */
-.in-view {
-    visibility: visible !important;
-    animation: fadeInUp 1.5s ease; /* Adjusted duration */
-}
-
-/* Our Goal About Box Styles */
-.our-goal-about-box {
-    text-align: center;
-}
-
-.our-goal-about-box img {
-    max-width: 100%; /* Ensure image doesn't overflow its container */
-    height: auto; /* Maintain aspect ratio */
-    margin-bottom: 20px; /* Add spacing below the image */
-    border-radius: 5px; /* Add a subtle border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-}
-/* CSS for image enlargement on hover */
-.our-goal-about-box img {
-    transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.our-goal-about-box img:hover {
-    transform: scale(1.1); /* Enlarge the image by 10% on hover */
-}
-
-.our-goal-about-box h2 {
-    font-size: 24px; /* Box heading font size */
-    margin-bottom: 10px; /* Spacing below box headings */
-    color: #333; /* Box heading color */
-}
-
-.our-goal-about-box p {
-    font-size: 16px; /* Box paragraph font size */
-    margin-bottom: 20px; /* Spacing below paragraphs */
-    color: #666; /* Box paragraph color */
-}
-
-.about-box h2 {
-    font-size: 24px; /* Box heading font size */
-    margin-bottom: 10px; /* Spacing below box headings */
-    color: #333; /* Box heading color */
-}
-
-.about-box p {
-    font-size: 16px; /* Box paragraph font size */
-    margin-bottom: 20px; /* Spacing below paragraphs */
-    color: #666; /* Box paragraph color */
-}
-
-/* Hover Styles */
-.about-box:hover {
-    background-color: #1963eb; /* Blue background color */
-    color: #fff; /* White text color */
-    transition: background-color 0.3s ease-in, color 0.3s ease-out; /* Smooth transition */
-
-}
-
-.about-box::after {
-    transition: background-color 0.3s ease; /* Same easing for ::after */
-}
-
-.about-box:hover h2,
-.about-box:hover p {
-    color: #fff; /* White text color */
-}
-
-
-/* Scholarships Section Styles */
-.scholarships-section {
-    padding: 80px 20px; /* Adjust section padding */
-    background-color: #fff; /* Section background color */
-    color: #333; /* Text color */
-}
-
-.scholarship-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.scholarship {
-    flex: 0 0 calc(33.333% - 20px); /* Adjust width of scholarship boxes */
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    background-color: #f5f5f5; /* Box background color */
-    border-radius: 5px; /* Box border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
-}
-
-.scholarship h3 {
-    font-size: 20px; /* Heading font size */
-    margin-bottom: 10px; /* Spacing below heading */
-    color: #333; /* Heading color */
-}
-
-.scholarship a {
-    text-decoration: none;
-    color: #007bff; /* Link color */
-    transition: color 0.3s ease; /* Smooth color transition */
-}
-
-.scholarship a:hover {
-    color: #0056b3; /* Link color on hover */
-}
-
-/* Calendar Section Styles */
-.calendar-section {
-    padding: 80px 20px; /* Adjust section padding */
-    background-color: #f5f5f5; /* Section background color */
-    color: #333; /* Text color */
-}
-
-.container iframe {
-    width: 100%;
-    height: 600px; /* Adjust calendar height */
-    border: none;
-}
-
-
-
-/* Events Section Styles */
-.events-section {
-    padding: 80px 20px; /* Adjust section padding */
-    background-color: #fff; /* Section background color */
-    color: #333; /* Text color */
-}
-
-.events-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Align items at the top */
-    flex-wrap: wrap;
-}
-
-.event {
-    flex: 0 0 calc(50% - 20px); /* Adjust width of event boxes */
-    margin: 10px;
-    padding: 20px;
-    background-color: #f5f5f5; /* Box background color */
-    border-radius: 5px; /* Box border radius */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow */
-}
-
-/* Additional CSS for Event Section */
-
-/* Event Title Styles */
-.event h2 {
-    font-size: 24px; /* Increase font size for event titles */
-    margin-bottom: 15px; /* Add more space below event titles */
-    color: #333; /* Event title color */
-}
-
-
-/* Event Photo Container Styles */
-.event-photos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-content: space-around; /* Distribute photos evenly */
-    align-items: center; /* Align photos vertically */
-    margin-top: 20px; /* Add margin to separate photos from title */
-}
-
-/* Event Photo Styles */
-.event-photos img {
-    width: 240px; /* Set a fixed width for all photos */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Add rounded corners to photos */
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
-    transition: transform 0.3s ease; /* Add smooth hover effect */
-    cursor: pointer;
-}
-
-/* Hover effect on event photos */
-.event-photos img:hover {
-    transform: scale(1.1); /* Enlarge photo on hover */
-}
-
-/* Lightbox Styles */
-.lightbox {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-    transition: opacity 0.3s ease;
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-content {
-    display: block;
-    max-width: 80%;
-    max-height: 80%;
-    transition: transform 0.25s ease;
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    opacity: 0.7;
-}
-
-.close:hover,
-.close:focus {
-    color: #26a0eb;
-    text-decoration: none;
-    cursor: pointer;
-    opacity: 1;
-}
-
-/* Teachers and Mentors Section Styles */
-.teachers-section {
-    padding: 80px 20px;
-    background-color: #f5f5f5;
-    text-align: center;
-}
-
-.teachers-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 30px; /* Space between each teacher card */
-}
-
-/* Circular Teacher card */
-.teacher {
-    width: 280px;
-    height: 280px; /* Make the height equal to width for a circle */
-    background-color: #fff;
-    border-radius: 50%; /* Make the card circular */
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    cursor: pointer;
-}
-
-/* Lift card and add shadow on hover */
-.teacher:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45);
-}
-
-/* Circular Teacher profile image */
-.teacher-profile {
-    width: 100%;
-    height: 100%; /* Ensure the profile area is circular */
-    overflow: hidden;
-    border-radius: 50%; /* Circular profile image */
-    position: relative;
-}
-
-.teacher img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    filter: grayscale(100%); /* Darken image with grayscale initially */
-}
-
-/* Hover effects for the image */
-.teacher:hover img {
-    transform: scale(1.1); /* Zoom image on hover */
-    filter: grayscale(0%); /* Remove grayscale to show color on hover */
-}
-
-/* Teacher details (name and position) */
-.teacher-details {
-    position: absolute; /* Overlay the details */
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
-    color: #fff; /* White text color */
-    text-align: center;
-    transition: background-color 0.4s ease, color 0.4s ease; /* Smooth color transition */
-}
-
-/* Change background to blue and text to white on hover */
-.teacher:hover .teacher-details {
-    background-color: #007bff; /* Bright blue background on hover */
-    color: #fff; /* Change text color to white on hover */
-}
-
-/* Ensure the text color changes to white */
-.teacher-details h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
-    transition: color 0.4s ease;
-}
-
-.teacher-details p {
-    font-size: 14px;
-    transition: color 0.4s ease;
-}
-
-.teacher:hover .teacher-details p {
-    color: #ffa600; /* Change text color on hover */
-}
-
-/* Responsive design: stack the cards on smaller screens */
-@media (max-width: 768px) {
-    .teachers-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .teacher {
-        width: 90%;
-        height: auto; /* Allow height to adjust automatically */
-        border-radius: 50%; /* Maintain circular shape */
-        margin-bottom: 20px;
-    }
-}
-
-
-
-/* Footer Section Styles */
-footer {
-    padding: 50px 20px; /* Adjust footer padding */
-    background-color: #333; /* Footer background color */
-    color: #fff; /* Text color */
-    text-align: center;
-}
-
-.footer-logo {
-    margin-bottom: 20px; /* Spacing below logo */
-}
-
-.footer-logo img {
-    max-width: 120px; /* Adjust logo size */
-    height: auto; /* Ensure aspect ratio is maintained */
-    border-radius: 50%; /* Make the logo circular */
-    transition: transform 0.3s ease; /* Smooth transition on hover */
-}
-
-.footer-logo img:hover{
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-.social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-    transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
-}
-
-.social-icons a:hover {
-    transform: scale(1.05); /* Zoom effect on hover */
-}
-
-.social-icons img {
-    width: 30px;
-    height: auto;
-    opacity: 0.7; /* Set initial opacity */
-}
-
-.social-icons a:hover img {
-    opacity: 1; /* Increase opacity on hover */
-}
-
-
-
-/* Footer Styles */
-.footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 20px; /* Reduce the top and bottom padding */
-    text-align: center;
-}
-
-.socials-section {
-    margin-bottom: 10px; /* Reduce the bottom margin for the socials section */
-}
-
-.socials-title {
-    font-size: 18px;
-    margin-bottom: 5px; /* Reduce the bottom margin for the socials title */
-}
-
-.social-icons a {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-.social-icons img {
-    width: 50px;
-    height: auto;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-logo img {
-    max-width: 75px; /* Reduce the max-width of the logo */
-    height: auto;
-}
-
-.footer-info p {
-    margin: 0;
-    margin-top: 5px; /* Reduce the top margin for the footer info */
-    font-size: 14px;
-}
-
-
-/* Scroll to Top Button Styles */
-.scroll-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 24px; /* Button font size */
-    color: #333; /* Button color */
-    background-color: #fca522; /* Button background color */
-    width: 40px; /* Button width */
-    height: 40px; /* Button height */
-    text-align: center;
-    line-height: 40px; /* Center button text vertically */
-    border-radius: 50%; /* Make button circular */
-    cursor: pointer;
-    z-index: 9999; /* Ensure button appears on top of other content */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-
-.scroll-to-top:hover {
-    background-color: #e0941d; /* Button background color on hover */
-}
-
-/* Dark Mode Styles */
-.dark-mode {
-    background-color: #222; /* Dark mode background color */
-    color: #fff; /* Dark mode text color */
-}
-
 
 /* General styles to ensure responsiveness */
 * {
@@ -878,8 +414,3 @@ body {
         width: 100%; /* Full width on smaller screens */
     }
 }
-
-
-
-
-

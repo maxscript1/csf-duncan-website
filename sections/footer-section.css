@@ -1,0 +1,119 @@
+/* Footer Section Styles */
+footer {
+    padding: 50px 20px; /* Adjust footer padding */
+    background-color: #333; /* Footer background color */
+    color: #fff; /* Text color */
+    text-align: center;
+}
+
+.footer-logo {
+    margin-bottom: 20px; /* Spacing below logo */
+}
+
+.footer-logo img {
+    max-width: 120px; /* Adjust logo size */
+    height: auto; /* Ensure aspect ratio is maintained */
+    border-radius: 50%; /* Make the logo circular */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.footer-logo img:hover{
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add opacity transition */
+}
+
+.social-icons a:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+    opacity: 0.7; /* Set initial opacity */
+}
+
+.social-icons a:hover img {
+    opacity: 1; /* Increase opacity on hover */
+}
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 20px; /* Reduce the top and bottom padding */
+    text-align: center;
+}
+
+.socials-section {
+    margin-bottom: 10px; /* Reduce the bottom margin for the socials section */
+}
+
+.socials-title {
+    font-size: 18px;
+    margin-bottom: 5px; /* Reduce the bottom margin for the socials title */
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 50px;
+    height: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 75px; /* Reduce the max-width of the logo */
+    height: auto;
+}
+
+.footer-info p {
+    margin: 0;
+    margin-top: 5px; /* Reduce the top margin for the footer info */
+    font-size: 14px;
+}
+
+
+/* Scroll to Top Button Styles */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px; /* Button font size */
+    color: #333; /* Button color */
+    background-color: #fca522; /* Button background color */
+    width: 40px; /* Button width */
+    height: 40px; /* Button height */
+    text-align: center;
+    line-height: 40px; /* Center button text vertically */
+    border-radius: 50%; /* Make button circular */
+    cursor: pointer;
+    z-index: 9999; /* Ensure button appears on top of other content */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.scroll-to-top:hover {
+    background-color: #e0941d; /* Button background color on hover */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #222; /* Dark mode background color */
+    color: #fff; /* Dark mode text color */
+}
+

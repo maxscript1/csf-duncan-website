@@ -168,4 +168,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+    
+        // Open lightbox function
+        window.openLightbox = function (imgElement) {
+            lightbox.style.display = "flex";
+            lightboxImg.src = imgElement.src;
+            setTimeout(() => {
+                lightboxImg.style.transform = "scale(1)";
+                lightboxImg.style.opacity = "1";
+            }, 50);
+        };
+    
+        // Close lightbox function
+        window.closeLightbox = function () {
+            lightboxImg.style.transform = "scale(0.8)";
+            lightboxImg.style.opacity = "0";
+            setTimeout(() => {
+                lightbox.style.display = "none";
+            }, 300);
+        };
+    
+        // Close lightbox when clicking outside of the image
+        lightbox.addEventListener("click", function (event) {
+            if (event.target === lightbox) {
+                closeLightbox();
+            }
+        });
+    });
+
+    
+
 });
