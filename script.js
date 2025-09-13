@@ -203,3 +203,31 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
 });
+
+
+// Load officers dynamically
+fetch("officers.json")
+  .then(response => response.json())
+  .then(data => {
+    const container = document.querySelector(".teachers-container");
+    container.innerHTML = ""; // clear placeholder content
+
+    data.officers.forEach(officer => {
+      const div = document.createElement("div");
+      div.classList.add("teacher");
+      div.setAttribute("data-aos", "fade-up");
+
+      div.innerHTML = `
+        <div class="teacher-profile">
+          <img src="${officer.photo}" alt="${officer.name} - ${officer.role}" />
+        </div>
+        <div class="teacher-details">
+          <h3>${officer.name}</h3>
+          <p>${officer.role}</p>
+        </div>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(error => console.error("Error loading officers:", error));
